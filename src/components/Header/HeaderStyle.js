@@ -3,7 +3,7 @@ const headerStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginBottom: theme.spacing(2),
-    paddingTop: theme.spacing(3),
+    paddingTop: theme.spacing(1),
   },
   menuButton: {
     marginRight: theme.spacing(2),

@@ -5,7 +5,7 @@ import About from "./components/About/About";
 import Courses from "./components/Courses/Courses";
 import Discussions from "./components/Discussions/Discussions";
 import Home from "./components/Home/Home";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import Profile from "./components/Profile/Profile";
 import SignUp from "./components/Authentication/SignUp/SignUp";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -27,7 +27,7 @@ const theme = createMuiTheme({
     },
     text: {
       primary: "#f5f5f5",
-      secondary: "#e0e0e0",
+      secondary: "#bdbdbd",
     },
   },
   typography: {
@@ -64,6 +64,7 @@ function App() {
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Router>
           <Switch>
             <Route path="/home">

@@ -58,14 +58,14 @@ const CourseCard = () => {
             ever since the 1500s
           </Typography>
         </CardContent>
-        <CardActions justify="center">
+        <CardActions>
           <Button
             component={RouterLink}
             to="/courseDetails"
             variant="outlined"
             className={classes.enrollBtn}
           >
-            Enroll Now
+            See Details
           </Button>
         </CardActions>
       </Card>

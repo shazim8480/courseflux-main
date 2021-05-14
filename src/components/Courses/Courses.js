@@ -34,7 +34,7 @@ const Courses = () => {
           {/* for search & categories */}
           <Grid
             className={classes.searchContainer}
-            container
+            item
             justify="center"
             xs={12}
             lg={4}

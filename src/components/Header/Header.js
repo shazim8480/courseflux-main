@@ -7,7 +7,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { useHistory, withRouter } from "react-router";
-import { Button, Link, useTheme } from "@material-ui/core";
+import { AppBar, Button, Link, useTheme } from "@material-ui/core";
 
 import logo from "../../images/CourseFluxlogo.png";
 
@@ -62,74 +62,76 @@ const Header = () => {
   return (
     <>
       <div className={classes.root}>
-        <Toolbar>
-          <div align="left" variant="h4" className={classes.title}>
-            <Link href="/home">
-              <img className={classes.headerImg} src={logo} alt="logo_img" />
-            </Link>
-          </div>
+        <AppBar position="sticky">
+          <Toolbar>
+            <div align="left" variant="h4" className={classes.title}>
+              <Link href="/home">
+                <img className={classes.headerImg} src={logo} alt="logo_img" />
+              </Link>
+            </div>
 
-          <div>
-            {isMobile ? (
-              <>
-                <IconButton
-                  edge="start"
-                  className={classes.menuButton}
-                  onClick={handleMenu}
-                  color="inherit"
-                  aria-label="menu"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={open}
-                  onClose={() => setAnchorEl(null)}
-                >
-                  {/* mapping for responsive */}
+            <div>
+              {isMobile ? (
+                <>
+                  <IconButton
+                    edge="start"
+                    className={classes.menuButton}
+                    onClick={handleMenu}
+                    color="inherit"
+                    aria-label="menu"
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                  <Menu
+                    id="menu-appbar"
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={open}
+                    onClose={() => setAnchorEl(null)}
+                  >
+                    {/* mapping for responsive */}
+                    {headerItems.map((headerItem) => {
+                      const { headerTitle, pageURL } = headerItem;
+                      return (
+                        <MenuItem
+                          className={classes.responsiveNav}
+                          onClick={() => handleMenuClick(pageURL)}
+                        >
+                          {headerTitle}
+                        </MenuItem>
+                      );
+                    })}
+                  </Menu>
+                </>
+              ) : (
+                //   mapping for non-responsive //
+                <div className={classes.menuList}>
                   {headerItems.map((headerItem) => {
                     const { headerTitle, pageURL } = headerItem;
                     return (
-                      <MenuItem
-                        className={classes.responsiveNav}
+                      <Button
+                        className={classes.navBtn}
+                        color="secondary"
                         onClick={() => handleMenuClick(pageURL)}
+                        size="large"
                       >
                         {headerTitle}
-                      </MenuItem>
+                      </Button>
                     );
                   })}
-                </Menu>
-              </>
-            ) : (
-              //   mapping for non-responsive //
-              <div className={classes.menuList}>
-                {headerItems.map((headerItem) => {
-                  const { headerTitle, pageURL } = headerItem;
-                  return (
-                    <Button
-                      className={classes.navBtn}
-                      color="secondary"
-                      onClick={() => handleMenuClick(pageURL)}
-                      size="large"
-                    >
-                      {headerTitle}
-                    </Button>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        </Toolbar>
+                </div>
+              )}
+            </div>
+          </Toolbar>
+        </AppBar>
       </div>
     </>
   );
