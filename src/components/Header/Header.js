@@ -102,7 +102,7 @@ const Header = () => {
                       const { headerTitle, pageURL } = headerItem;
                       return (
                         <MenuItem
-                          key={headerItems.headerTitle}
+                          key={headerTitle}
                           className={classes.responsiveNav}
                           onClick={() => handleMenuClick(pageURL)}
                         >
