@@ -99,9 +99,10 @@ const Header = () => {
                   >
                     {/* mapping for responsive */}
                     {headerItems.map((headerItem) => {
-                      const { headerTitle, pageURL } = headerItem;
+                      const { headerTitle, pageURL } = headerItems;
                       return (
                         <MenuItem
+                          key={headerItems.headerTitle}
                           className={classes.responsiveNav}
                           onClick={() => handleMenuClick(pageURL)}
                         >

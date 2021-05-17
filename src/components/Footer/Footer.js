@@ -1,17 +1,21 @@
 import {
+  Button,
   Container,
   CssBaseline,
   Grid,
   Paper,
+  TextField,
   Typography,
 } from "@material-ui/core";
-import { Icon } from "@material-ui/core";
 import React from "react";
 import footerStyles from "./FooterStyle";
 import footerLogo from "../../images/CourseFluxlogo.png";
 import PhoneAndroidRoundedIcon from "@material-ui/icons/PhoneAndroidRounded";
 import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
 import LocationOnRoundedIcon from "@material-ui/icons/LocationOnRounded";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import InstagramIcon from "@material-ui/icons/Instagram";
 
 const Footer = () => {
   const classes = footerStyles();
@@ -100,6 +104,54 @@ const Footer = () => {
               <Typography variant="h5" color="primary">
                 Get in Touch
               </Typography>
+              <div className={classes.socialPack}>
+                <FacebookIcon
+                  className={classes.socialIcon}
+                  color="primary"
+                  fontSize="large"
+                />
+                <YouTubeIcon
+                  className={classes.socialIcon}
+                  color="primary"
+                  fontSize="large"
+                />
+                <InstagramIcon
+                  className={classes.socialIcon}
+                  color="primary"
+                  fontSize="large"
+                />
+              </div>
+              <Typography
+                className={classes.subscribeText}
+                variant="h5"
+                color="primary"
+              >
+                Subscribe to Newsletter
+              </Typography>
+              <Grid alignItems="center" container spacing={1}>
+                <Grid item lg={8} xs={8}>
+                  <TextField
+                    className={classes.emailField}
+                    placeholder="Your E-mail"
+                    margin="normal"
+                    variant="outlined"
+                    fullWidth
+                    autoFocus
+                  />
+                </Grid>
+                <Grid item lg={4} xs={4}>
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="secondary"
+                    className={classes.subscribeButton}
+                    // onClick={() => handleBtnClick()}
+                  >
+                    Subscribe
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
             {/* social footer section end */}
             <Typography

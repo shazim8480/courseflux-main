@@ -25,22 +25,11 @@ const Courses = () => {
       <Box borderTop={3} className={classes.borderContainer}></Box>
       <Container>
         {/* initial grid container for search, category & description  */}
-        <Grid
-          container
-          className={classes.coursesContainer}
-          justify="center"
-          spacing={2}
-        >
+        <Grid container className={classes.coursesContainer} spacing={2}>
           {/* for search & categories */}
-          <Grid
-            className={classes.searchContainer}
-            item
-            justify="center"
-            xs={12}
-            lg={4}
-          >
+          <Grid className={classes.searchContainer} item xs={12} lg={4}>
             {/* for search */}
-            <Grid justify="center" item xs={12} lg={12}>
+            <Grid item xs={12} lg={12}>
               <Typography variant="h5" color="textSecondary">
                 Search Here
               </Typography>
@@ -66,13 +55,7 @@ const Courses = () => {
             </Grid>
 
             {/* for categories & others */}
-            <Grid
-              className={classes.categoryContainer}
-              justify="center"
-              item
-              xs={12}
-              lg={12}
-            >
+            <Grid className={classes.categoryContainer} item xs={12} lg={12}>
               <Typography
                 className={classes.deptText}
                 variant="h5"

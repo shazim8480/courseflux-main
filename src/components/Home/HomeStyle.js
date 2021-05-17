@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const homeStyles = makeStyles((theme) => ({
   homeContainer: {
     paddingTop: theme.spacing(3),
-    marginBottom: theme.spacing(8),
+    marginBottom: theme.spacing(3),
+    alignItems: "center",
   },
   span: {
     fontWeight: "bold",

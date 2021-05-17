@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import React from "react";
 import Header from "../Header/Header";
 import homeStyles from "./HomeStyle";
-import bodyImg from "../../images/bgImg.jpg";
+import bodyImg from "../../images/bgImg-highRes.png";
 import Footer from "../Footer/Footer";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -55,7 +55,12 @@ const Home = () => {
                   </Button>
                 </Grid>
                 <Grid item xs={4} lg={2}>
-                  <Button variant="contained" color="secondary">
+                  <Button
+                    component={RouterLink}
+                    to="/login"
+                    variant="contained"
+                    color="secondary"
+                  >
                     Login
                   </Button>
                 </Grid>

@@ -9,10 +9,10 @@ const courseDetailsStyles = makeStyles((theme) => ({
     },
   },
   courseDetailsContainer: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(5),
   },
   courseImgContainer: {
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(3),
   },
   tabsContainer: {
     paddingTop: theme.spacing(5),

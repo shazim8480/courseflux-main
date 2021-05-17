@@ -15,7 +15,7 @@ import signUpStyles from "./SignUpStyle";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useHistory, useLocation } from "react-router";
+import { useHistory } from "react-router";
 import { UserContext } from "../../../App";
 
 function Copyright() {
@@ -34,7 +34,7 @@ function Copyright() {
 const SignUp = () => {
   const classes = signUpStyles();
   // use context api from app.js////////////////////
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const [loggedInUser] = useContext(UserContext);
 
   // validation using yup //
   const schema = yup.object().shape({
@@ -56,7 +56,7 @@ const SignUp = () => {
   // to redirect to inner pages after authentication//
   const history = useHistory();
   // const location = useLocation();
-  // let { from } = location.state || { from: { pathname: "/" } };
+  // let { from } = location.state || { from: { pathname: "/courses" } };
 
   //////////////////////////////////////////////////////////////////
 
@@ -85,7 +85,11 @@ const SignUp = () => {
         </Typography>
 
         {/* sign up form part start */}
-        <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          className={classes.form}
+        >
           <Controller
             render={({ props }) => (
               <TextField
@@ -125,7 +129,7 @@ const SignUp = () => {
             control={control}
             defaultValue={loggedInUser.email}
           />
-          {errors?.email && (
+          {errors.email && (
             <span className={classes.errorText}>{errors.email?.message}</span>
           )}
 
@@ -181,7 +185,8 @@ const SignUp = () => {
 
           {/* sign up button part */}
           <Button
-            // type="submit" will re-activate when auth is complete//
+            type="submit"
+            // will re-activate when auth is complete//
             fullWidth
             variant="contained"
             color="secondary"
@@ -191,14 +196,9 @@ const SignUp = () => {
             Sign Up
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2" color="textPrimary">
-                Forgot password?
-              </Link>
-            </Grid>
             <Grid item>
-              <Link href="#" variant="body2" color="textPrimary">
-                {"Already have an account? Sign In"}
+              <Link href="/login" variant="body2" color="textPrimary">
+                {"Already have an account? Log In"}
               </Link>
             </Grid>
           </Grid>

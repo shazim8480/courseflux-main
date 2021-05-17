@@ -8,8 +8,9 @@ import Home from "./components/Home/Home";
 import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import Profile from "./components/Profile/Profile";
 import SignUp from "./components/Authentication/SignUp/SignUp";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import CourseDetails from "./components/Courses/Course Details/CourseDetails";
+import Login from "./components/Authentication/Login/Login";
 
 export const UserContext = createContext();
 
@@ -90,10 +91,13 @@ function App() {
             <Route path="/signUp">
               <SignUp />
             </Route>
-            <Route path="/">
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="*">
+            <Route path="*">
               <ErrorPage />
             </Route>
           </Switch>
