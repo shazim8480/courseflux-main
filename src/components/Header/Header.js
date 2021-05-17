@@ -99,7 +99,7 @@ const Header = () => {
                   >
                     {/* mapping for responsive */}
                     {headerItems.map((headerItem) => {
-                      const { headerTitle, pageURL } = headerItems;
+                      const { headerTitle, pageURL } = headerItem;
                       return (
                         <MenuItem
                           key={headerItems.headerTitle}
